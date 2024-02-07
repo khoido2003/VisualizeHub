@@ -20,7 +20,7 @@ interface BoardListProps {
 export const BoardList = ({ orgId, query }: BoardListProps) => {
   const data = useQuery(api.boards.get, { orgId });
 
-  if (true) {
+  if (data === undefined) {
     return (
       <div>
         <h2 className="text-3xl">
