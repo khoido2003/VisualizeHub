@@ -19,7 +19,7 @@ const DashBoardPage = ({ searchParams }: DashBoardPageProps) => {
       {!organization ? (
         <EmptyOrg />
       ) : (
-        <p>
+        <p className="h-[80%]">
           <BoardList orgId={organization.id} query={searchParams} />
         </p>
       )}
