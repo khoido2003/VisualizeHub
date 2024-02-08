@@ -20,6 +20,21 @@ export const get = query({
       .order("desc")
       .collect();
 
-    return boards;
+    // Favourite board
+    const boardsWithFavouriteRelation = boards.map((board) => {
+      return ctx.db
+        .query("userFavourites")
+        .withIndex("by_user_board", (q) =>
+          q.eq("userId", identity.subject).eq("boardId", board._id),
+        )
+        .unique()
+        .then((favourite) => {
+          return { ...board, isFavourite: !!favourite };
+        });
+    });
+
+    const boardsWithFavouriteBoolean = Promise.all(boardsWithFavouriteRelation);
+
+    return boardsWithFavouriteBoolean;
   },
 });
