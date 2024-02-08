@@ -1,6 +1,4 @@
-import { Skeleton } from "@/components/ui/skeleton";
 import { Loader } from "lucide-react";
-import { CanvasProps } from "./canvas";
 import Info from "./info";
 import Participants from "./participants";
 import ToolBar from "./toolbar";
