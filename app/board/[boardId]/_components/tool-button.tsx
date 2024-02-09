@@ -26,7 +26,7 @@ export const ToolButton = ({
         disabled={isDisabled}
         onClick={onClick}
         size="icon"
-        variant="board"
+        variant={isActive ? "boardActive" : "board"}
       >
         {/* Since the icon is from lucide react, use Icon then you can use it as a component immediately */}
         <Icon />
