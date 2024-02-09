@@ -13,7 +13,12 @@ interface RoomProps {
 
 export const Room = ({ children, roomId }: RoomProps) => {
   return (
-    <RoomProvider id={roomId} initialPresence={{}}>
+    <RoomProvider
+      id={roomId}
+      initialPresence={{
+        cursor: null,
+      }}
+    >
       <ClientSideSuspense fallback={<Loading />}>
         {() => children}
       </ClientSideSuspense>
