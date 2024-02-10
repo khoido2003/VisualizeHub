@@ -27,6 +27,7 @@ import {
 } from "@/liveblocks.config";
 import { LiveObject } from "@liveblocks/client";
 import { LayerPreview } from "./layer-preview";
+import { SelectionBox } from "./selection-box";
 
 ///////////////////////////////////////////////////////////////
 
@@ -232,6 +233,9 @@ export const Canvas = ({ boardId }: CanvasProps) => {
               />
             );
           })}
+
+          <SelectionBox onResizeHandlePointerDown={() => {}} />
+
           <CursorPresence />
         </g>
       </svg>
