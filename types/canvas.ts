@@ -1,4 +1,3 @@
-import { LayerType } from "./canvas";
 export type Color = {
   r: number;
   g: number;
@@ -99,7 +98,7 @@ export type CanvasState =
     }
   | {
       mode: CanvasMode.Inserting;
-      LayerType:
+      layerType:
         | LayerType.Ellipse
         | LayerType.Rectangle
         | LayerType.Text
@@ -131,3 +130,10 @@ export enum CanvasMode {
   Resizing,
   Pencil,
 }
+
+export type Layer =
+  | RectangleLayer
+  | EllipseLayer
+  | PathLayer
+  | TextLayer
+  | NoteLayer;
