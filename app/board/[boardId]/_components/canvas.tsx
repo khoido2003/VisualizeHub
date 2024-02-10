@@ -2,7 +2,11 @@
 import { nanoid } from "nanoid";
 import { useCallback, useMemo, useState } from "react";
 
-import { connectionIdToColor, pointerEventToCanvasPoint } from "@/lib/utils";
+import {
+  connectionIdToColor,
+  pointerEventToCanvasPoint,
+  resizeBounds,
+} from "@/lib/utils";
 import {
   Camera,
   CanvasMode,
@@ -10,6 +14,8 @@ import {
   Color,
   LayerType,
   Point,
+  Side,
+  XYWH,
 } from "@/types/canvas";
 
 import Info from "./info";
@@ -51,6 +57,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   });
 
   const [camera, setCamera] = useState<Camera>({ x: 0, y: 0 });
+
   const [lastUsedColor, setLastUsedColor] = useState<Color>({
     r: 255,
     g: 255,
@@ -100,6 +107,42 @@ export const Canvas = ({ boardId }: CanvasProps) => {
     [lastUsedColor],
   );
 
+  //--------------------------------------------
+  // RESIZE
+  const onResizeHanldePointerDown = useCallback(
+    (corner: Side, initialBounds: XYWH) => {
+      history.pause();
+      setCanvasStateProps({
+        mode: CanvasMode.Resizing,
+        corner,
+        initialBounds,
+      });
+    },
+    [history],
+  );
+
+  const resizeSelectedLayer = useMutation(
+    ({ storage, self }, point: Point) => {
+      if (canvasStateProps.mode !== CanvasMode.Resizing) {
+        return;
+      }
+
+      const bounds = resizeBounds(
+        canvasStateProps.initialBounds,
+        canvasStateProps.corner,
+        point,
+      );
+
+      const liveLayers = storage.get("layers");
+      const layer = liveLayers.get(self.presence.selection[0]);
+
+      if (layer) {
+        layer.update(bounds);
+      }
+    },
+    [canvasStateProps],
+  );
+
   // -----------------------------------------
 
   // OnWheel events
@@ -119,9 +162,13 @@ export const Canvas = ({ boardId }: CanvasProps) => {
 
       const current = pointerEventToCanvasPoint(e, camera);
 
+      if (canvasStateProps.mode === CanvasMode.Resizing) {
+        resizeSelectedLayer(current);
+      }
+
       setMyPresence({ cursor: current });
     },
-    [],
+    [camera, canvasStateProps, resizeSelectedLayer],
   );
 
   // --------------------------------------------
@@ -234,7 +281,7 @@ export const Canvas = ({ boardId }: CanvasProps) => {
             );
           })}
 
-          <SelectionBox onResizeHandlePointerDown={() => {}} />
+          <SelectionBox onResizeHandlePointerDown={onResizeHanldePointerDown} />
 
           <CursorPresence />
         </g>
