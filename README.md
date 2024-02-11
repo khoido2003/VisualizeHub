@@ -51,9 +51,9 @@ VisualizeHub is an collaborative visual workspace designed to unleash creativity
 - Ensure you have [Node.js](https://nodejs.org/) installed.
 - Clone the VisualizeHub repository to your local machine.
 
-````bash
+```bash
 git clone https://github.com/khoido2003/VisualizeHub.git
-
+```
 
 ## Getting Started
 
