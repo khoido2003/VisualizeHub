@@ -1,7 +1,7 @@
 # VisualizeHub
 
 <div align="center">
-  <img src="./public//logo.svg" alt="VisualizeHub Logo" width="300">
+  <img src="./public//logo.svg" alt="VisualizeHub Logo" width="200">
 </div>
 
 Welcome to VisualizeHub - Your Collaborative Visual Workspace!
@@ -42,7 +42,7 @@ VisualizeHub is an collaborative visual workspace designed to unleash creativity
 - [TypeScript](https://www.typescriptlang.org/)
 - [Convex](https://convex.dev/)
 - [Clerk](https://clerk.dev/)
-- [Liveblock](https://liveblock.io/)
+- [Liveblocks](https://liveblocks.io/)
 
 ## 🌟 Getting Started
 
