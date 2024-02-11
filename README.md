@@ -1,4 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# VisualizeHub
+
+<div align="center">
+  <img src="./public//logo.svg" alt="VisualizeHub Logo" width="300">
+</div>
+
+Welcome to VisualizeHub - Your Collaborative Visual Workspace!
+
+VisualizeHub is an collaborative visual workspace designed to unleash creativity, streamline teamwork, and bring ideas to life. Whether you're a creative professional, project manager, educator, or part of a remote team, VisualizeHub provides a versatile platform for ideation, planning, and innovation.
+
+## 🚀 Key Features
+
+- **Infinite Canvas:** Explore boundless creativity with an infinite digital canvas.
+- **Real-Time Collaboration:** Collaborate seamlessly with team members in real-time.
+- **Intuitive Design Interface:** Craft your vision effortlessly with a user-friendly drag-and-drop interface.
+- **Privacy and Permissions:** Control access with robust permission controls for a secure and personalized experience.
+
+## 📷 Screenshots
+
+<div align="center">
+  <img src="./screenshots/sc-1.png" alt="Screenshot 1" width="600">
+  <br>
+  <em>VisualizeHub dashboard</em>
+</div>
+
+<div align="center">
+  <img src="./screenshots/sc-2.png" alt="Screenshot 1" width="600">
+  <br>
+  <em>VisualizeHub in Action</em>
+</div>
+
+<div align="center">
+  <img src="./screenshots/sc-3.png" alt="Screenshot 2" width="600">
+  <br>
+  <em>Real-Time Collaboration</em>
+</div>
+
+## 🛠️ Technology Stack
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Convex](https://convex.dev/)
+- [Clerk](https://clerk.dev/)
+- [Liveblock](https://liveblock.io/)
+
+## 🌟 Getting Started
+
+### Prerequisites
+
+- Ensure you have [Node.js](https://nodejs.org/) installed.
+- Clone the VisualizeHub repository to your local machine.
+
+````bash
+git clone https://github.com/khoido2003/VisualizeHub.git
+
 
 ## Getting Started
 
@@ -12,7 +67,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
